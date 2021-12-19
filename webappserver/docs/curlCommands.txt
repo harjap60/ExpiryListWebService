@@ -1,0 +1,44 @@
+Note: Requires GSON maven library
+Example uses of curl commands:::::
+
+(Adding food with addFood)
+curl -i -H "Content-Type: application/json" -X POST -d '{
+        "name": "Burger",
+        "notes": "fast food",
+        "price": "10.99",
+       "expiry": "2021-12-09T01:01",
+       "weight": "500.5"
+    }' localhost:8080/addFood
+
+(Adding drink with addDrink)
+curl -i -H "Content-Type: application/json" -X POST -d '{
+        "name": "Juice",
+        "notes": "pop",
+        "price": "2.50",
+       "expiry": "2021-12-09T01:01",
+       "volume": "250"
+    }' localhost:8080/addDrink
+
+(Pinging to check if server is up)
+curl -i -X GET localhost:8080/ping
+
+(Exit command, triggers server to save all items into a json file)
+curl -i -X GET localhost:8080/exit
+
+(RemoveItem removes an item based on id number, id number is specified after removeItem/)
+curl -I -X POST localhost:8080/removeItem/0
+
+(Returns json array of consumables)
+curl -i -X GET localhost:8080/listAll
+
+(Returns json array of expired consumables)
+curl -i -X GET localhost:8080/listExpired
+
+(Returns json array of non-expired consumables)
+curl -i -X GET localhost:8080/listNonExpired
+
+(Returns json array of consumables expiring in 7 days)
+curl -i -X GET localhost:8080/listExpiringIn7Days
+
+Program gets initialized when run from itemsList.json file.
+Saves to the same file when exit command is called

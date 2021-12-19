@@ -1,0 +1,20 @@
+Note: Requires GSON maven library
+Note: Only works if active server is up.
+
+Running the program will bring up the GUI showing all the lists. There are tabs for the different types of lists.
+Lists are automatically loaded from the spring boot server
+
+The add button at the bottom of the gui is used to add new items to the expiry list
+Clicking the add button will open a dialog which will let the user input different types of data.
+The user will type in the name, notes, price and weight/volume. There is also a selector up top to choose the type
+of the consumable. There is then another add button at the bottom, which if clicked, adds the new item to the server
+if all the attributes entered are correct. If incorrect, a small message will popup.
+
+For deleting there is a button in the main gui at the bottom right. It will redirect you to a custom dialog
+with a list of all items. You choose a item number from the items and enter it at the bottom and click delete.
+If the item number is valid the item is deleted from the server, otherwise a message pops up.
+
+When leaving the add dialog and delete dialog, the program will auto populate all the lists again from the server
+
+Closing the gui window will close the program and also prompt the server to save the items in a json file.
+Server will still stay active.
