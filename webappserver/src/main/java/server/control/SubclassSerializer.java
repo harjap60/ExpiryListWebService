@@ -1,8 +1,8 @@
-package ca.cmpt213.a4.control;
+package server.control;
 
-import ca.cmpt213.a4.model.Consumable;
-import ca.cmpt213.a4.model.DrinkStatistics;
-import ca.cmpt213.a4.model.FoodStatistics;
+import server.model.Consumable;
+import server.model.DrinkStatistics;
+import server.model.FoodStatistics;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
@@ -20,7 +20,7 @@ import java.util.TreeMap;
  */
 public class SubclassSerializer implements JsonSerializer<ArrayList<Consumable>> {
 
-    private static Map<String, Class> map = new TreeMap<String, Class>();
+    private static final Map<String, Class> map = new TreeMap<String, Class>();
 
     static {
         map.put("Consumable", Consumable.class);

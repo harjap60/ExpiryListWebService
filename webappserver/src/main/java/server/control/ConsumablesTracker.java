@@ -1,6 +1,6 @@
-package ca.cmpt213.a4.control;
+package server.control;
 
-import ca.cmpt213.a4.model.Consumable;
+import server.model.Consumable;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
@@ -14,15 +14,24 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
- * Generates a custom gson helper for handling json objects
+ * +
+ * Instantiates main objects for the system to work.
+ * Loads and saves arrayList
  */
 
-public class GsonHelper {
+public class ConsumablesTracker {
+    private ArrayList<Consumable> consumableArrayList;
 
-    public GsonHelper() {
+    public ConsumablesTracker() {
+        consumableArrayList = new ArrayList<>();
+
     }
 
-    public Gson getGson() {
+    public ArrayList<Consumable> getConsumableArrayList() {
+        return consumableArrayList;
+    }
+
+    private Gson getGson() {
         GsonBuilder myGson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class,
                 new TypeAdapter<LocalDateTime>() {
                     @Override
@@ -46,4 +55,23 @@ public class GsonHelper {
         return myGson.create();
     }
 
+    public void loadFromJson() throws FileNotFoundException {
+        Gson gson = getGson();
+        File file = new File("./src/itemsList.json");
+        if (file.exists()) {
+            BufferedReader br = new BufferedReader(new FileReader("./src/itemsList.json"));
+            Type type = new TypeToken<ArrayList<Consumable>>() {
+            }.getType();
+            ArrayList<Consumable> testConsumable = new ArrayList<>();
+            testConsumable = gson.fromJson(br, type);
+            consumableArrayList = testConsumable;
+        }
+    }
+
+    public void saveToJson(ArrayList<Consumable> array, ConsumablesTracker setup) throws IOException {
+        Gson myGson = setup.getGson();
+        FileWriter fileWriter = new FileWriter("./src/itemsList.json");
+        myGson.toJson(array, fileWriter);
+        fileWriter.close();
+    }
 }

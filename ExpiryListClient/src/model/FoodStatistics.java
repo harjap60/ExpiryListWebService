@@ -1,4 +1,4 @@
-package ca.cmpt213.a4.model;
+package model;
 
 import java.time.LocalDateTime;
 /**
@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  */
 public class FoodStatistics extends Consumable {
     private long id;
-    private double weight;
+    private final double weight;
 
 
     public long getId() {

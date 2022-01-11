@@ -1,6 +1,6 @@
-package ca.cmpt213.a4.view;
+package view;
 
-import ca.cmpt213.a4.model.Consumable;
+import model.Consumable;
 import com.github.lgooddatepicker.components.DatePicker;
 
 import javax.swing.*;
@@ -131,7 +131,7 @@ class AddDialog extends JDialog {
                 double price = Math.round((Double.parseDouble(priceInput.getText())) * 100.0) / 100.0;
                 String priceCurl = "\"" + price + "\"";
 
-                double weight_volume = (double) (Math.round((Double.parseDouble(weightVolumeInput.getText())) * 100.0) / 100.0);
+                double weight_volume = Math.round((Double.parseDouble(weightVolumeInput.getText())) * 100.0) / 100.0;
                 String weightVolumeCurl = "\"" + weight_volume + "\"";
 
                 LocalDateTime newExpiry = LocalDateTime.of(date.getDate().getYear(), date.getDate().getMonth(), date.getDate().getDayOfMonth(), 1, 1);

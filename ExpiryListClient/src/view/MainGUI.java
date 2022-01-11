@@ -1,8 +1,8 @@
-package ca.cmpt213.a4.view;
+package view;
 
-import ca.cmpt213.a4.model.Consumable;
-import ca.cmpt213.a4.control.GsonHelper;
-import ca.cmpt213.a4.model.FoodStatistics;
+import model.Consumable;
+import control.GsonHelper;
+import model.FoodStatistics;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,10 +31,10 @@ public class MainGUI extends JFrame {
     private JList nonExpiredList;
     private JList expireSevenList;
     private ArrayList<Consumable> listOfConsumables;
-    private DefaultListModel fullListModel;
-    private DefaultListModel expiredListModel;
-    private DefaultListModel nonExpiredListModel;
-    private DefaultListModel expireSevenListModel;
+    private final DefaultListModel fullListModel;
+    private final DefaultListModel expiredListModel;
+    private final DefaultListModel nonExpiredListModel;
+    private final DefaultListModel expireSevenListModel;
 
     public MainGUI() {
         //Get listAll from spring boot server

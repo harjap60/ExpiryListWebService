@@ -1,4 +1,4 @@
-package ca.cmpt213.a4.view;
+package view;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

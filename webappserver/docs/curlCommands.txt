@@ -1,5 +1,5 @@
-Note: Requires GSON maven library
-Example uses of curl commands:::::
+Note: Requires Google's GSON maven library
+Example uses of curl commands:
 
 (Adding food with addFood)
 curl -i -H "Content-Type: application/json" -X POST -d '{

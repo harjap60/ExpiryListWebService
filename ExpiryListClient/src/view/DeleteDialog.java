@@ -1,8 +1,8 @@
-package ca.cmpt213.a4.view;
+package view;
 
-import ca.cmpt213.a4.model.Consumable;
-import ca.cmpt213.a4.model.DrinkStatistics;
-import ca.cmpt213.a4.model.FoodStatistics;
+import model.Consumable;
+import model.DrinkStatistics;
+import model.FoodStatistics;
 
 import javax.swing.*;
 import java.awt.*;
